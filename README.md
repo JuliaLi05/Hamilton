@@ -10,7 +10,7 @@ Program umożliwia wprowadzanie danych na dwa sposoby:
 ---
 ### Ręczne wprowadzanie danych
 
-W przypadku wprowadzania danych ręcznie należy najpierw podać liczbę wierzchołków grafu, a następnie macierz sąsiedztwa
+W przypadku wprowadzania danych ręcznie należy najpierw podać liczbę wierzchołków grafu, a następnie macierz sąsiedztwa.
 
 **Przykład:**
 
