@@ -38,7 +38,7 @@ Plik powinien mieć następujący format:
 1 0 0 0
 ```
 Pierwsza liczba oznacza liczbę wierzchołków grafu. Kolejne wiersze zawierają macierz sąsiedztwa grafu.
-Dla powyższego przykładu graf ma 4 wierzchołki: '0, 1, 2, 3'.
+Dla powyższego przykładu graf ma 4 wierzchołki: `0, 1, 2, 3`.
 ## Wymagania i Kompilacja
 Projekt zawiera plik `Makefile` automatyzujący proces budowania.
 ### Wymagania:
