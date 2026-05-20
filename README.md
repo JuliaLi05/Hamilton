@@ -9,7 +9,9 @@ Program umożliwia wprowadzanie danych na dwa sposoby:
 
 ---
 ### Ręczne wprowadzanie danych
+
 W przypadku wprowadzania danych ręcznie należy najpierw podać liczbę wierzchołków grafu, a następnie macierz sąsiedztwa
+
 **Przykład:**
 
 ```txt
@@ -27,6 +29,7 @@ Podaj macierz sasiedztwa 4x4:
 - `0` — brak krawędzi  
 
 ### Wczytywanie z pliku
+
 W przypadku wczytywania z pliku należy podać nazwę pliku, np.:
 graf.txt
 Plik powinien mieć następujący format:
@@ -39,12 +42,16 @@ Plik powinien mieć następujący format:
 ```
 Pierwsza liczba oznacza liczbę wierzchołków grafu. Kolejne wiersze zawierają macierz sąsiedztwa grafu.
 Dla powyższego przykładu graf ma 4 wierzchołki: `0, 1, 2, 3`.
+
 ## Wymagania i Kompilacja
+
 Projekt zawiera plik `Makefile` automatyzujący proces budowania.
 ### Wymagania:
+
 * Kompilator **g++**`
 * System zgodny ze standardem POSIX (Linux/Unix/macOS) lub Windows.
 ### Instrukcja kompilacji:
+
 Aby skompilować projekt, w katalogu głównym uruchom komendę:
 
 ```bash
