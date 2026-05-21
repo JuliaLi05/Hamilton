@@ -43,16 +43,26 @@ void hamiltonCycle(const std::vector<std::vector<int>>& graph) {
     if (cycles.empty()) {
         std::cout << "Brak cyklu Hamiltona w grafie." << std::endl;
     }
-    else {
-        std::cout << "Znalezione cykle Hamiltona:" << std::endl;
-        for (size_t i = 0; i < cycles.size(); ++i) {
-            std::cout << "Cykl " << i + 1 << ": ";
-            for (int vertex : cycles[i]) {
-                std::cout << vertex << " ";
-            }
-            std::cout << std::endl;
-        }
-    }
+   else {
+     std::ofstream wynik("hamilton.txt");
+     if (!wynik.is_open()) {
+         std::cout << "Nie mozna utworzyc pliku hamilton.txt"
+             << std::endl;
+     }
+     for (size_t i = 0; i < cycles.size(); ++i) {
+         std::cout << "Cykl " << i + 1 << ": ";
+         wynik << "Cykl " << i + 1 << ": ";
+         for (int vertex : cycles[i]) {
+             std::cout << vertex << " ";
+             wynik << vertex << " ";
+         }
+         std::cout << std::endl;
+         wynik << std::endl;
+     }
+     wynik.close();
+     std::cout << "Wyniki zapisano do pliku hamilton.txt"
+         << std::endl;
+ }
     
 }
 std::vector<std::vector<int>> wczytajRecznie() {
