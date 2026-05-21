@@ -52,35 +52,90 @@ void hamiltonCycle(const std::vector<std::vector<int>>& graph) {
             std::cout << std::endl;
         }
     }
+    
 }
-
 std::vector<std::vector<int>> wczytajRecznie() {
     int n;
     std::cout << "Podaj liczbe wierzcholkow: ";
-    std::cin >> n;
-    std::vector<std::vector<int>> graph(n, std::vector<int>(n));
-    std::cout << "Podaj macierz sasiedztwa " << n << "x" << n << ":" << std::endl;
-    for (int i = 0; i < n; ++i) {
-        for (int j = 0; j < n; ++j) {
-            std::cin >> graph[i][j];
-        }
+    while (!(std::cin >> n) || n <= 0) {
+        std::cout << "Blad: podaj dodatnia liczbe calkowita: ";
+        std::cin.clear();
+        std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
     }
-    return graph;
+    std::vector<std::vector<int>> graph(n, std::vector<int>(n));
+    while (true) {
+        bool poprawnaMacierz = true;
+        std::cout << "Podaj macierz sasiedztwa " << n << "x" << n << ":" << std::endl;
+        for (int i = 0; i < n && poprawnaMacierz; ++i) {
+            for (int j = 0; j < n; ++j) {
+                if (!(std::cin >> graph[i][j]) ||
+                    (graph[i][j] != 0 && graph[i][j] != 1)) {
+
+                    poprawnaMacierz = false;
+                    break;
+                }
+            }
+        }
+        if (poprawnaMacierz) {
+            return graph;
+        }
+        std::cout << "\nBlad: niepoprawnie wprowadzona macierz sasiedztwa." << std::endl;
+        std::cout << "Wprowadz tylko liczby 0 lub 1 oddzielone spacjami." << std::endl;
+        std::cout << "Przyklad:" << std::endl;
+        std::cout << "0 1 1 0\n"
+            << "0 0 1 1\n"
+            << "0 1 0 1\n"
+            << "1 0 0 0\n";
+        std::cin.clear();
+        std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+    }
 }
 
 std::vector<std::vector<int>> wczytajZPliku(const std::string& nazwaPliku) {
-    std::ifstream plik(nazwaPliku);
-    if (!plik) {
-        std::cout << "Nie mozna otworzyc pliku." << std::endl;
-        return {};
-    }
-    int n;
-    plik >> n;
-    std::vector<std::vector<int>> graph(n, std::vector<int>(n));
-    for (int i = 0; i < n; ++i) {
-        for (int j = 0; j < n; ++j) {
-            plik >> graph[i][j];
+    std::string nazwaPlikuLokalna = nazwaPliku;
+    while (true) {
+        std::ifstream plik(nazwaPlikuLokalna);
+        if (!plik.is_open()) {
+            std::cout << "Nie mozna otworzyc pliku."
+                << std::endl;
+            std::cout << "Podaj nazwe pliku ponownie: ";
+            std::cin >> nazwaPlikuLokalna;
+            continue;
+        }
+       int n;
+if (!(plik >> n) || n <= 0) {
+    std::cout << "\nBlad: niepoprawny format pliku." << std::endl;
+    std::cout << "Pierwsza liczba w pliku musi byc dodatnia liczba wierzcholkow." << std::endl;
+    std::cout << "Podaj nazwe pliku ponownie: ";
+    std::cin >> nazwaPlikuLokalna;
+    continue;
+}
+
+std::vector<std::vector<int>> graph(n, std::vector<int>(n));
+bool poprawnyPlik = true;
+for (int i = 0; i < n && poprawnyPlik; ++i) {
+    for (int j = 0; j < n; ++j) {
+        if (!(plik >> graph[i][j]) ||
+            (graph[i][j] != 0 && graph[i][j] != 1)) {
+            poprawnyPlik = false;
+            break;
         }
     }
-    return graph;
+}
+
+if (!poprawnyPlik) {
+    std::cout << "\nBlad: niepoprawna macierz sasiedztwa w pliku." << std::endl;
+    std::cout << "Plik powinien zawierac tylko liczby 0 lub 1 oddzielone spacjami." << std::endl;
+    std::cout << "Przyklad poprawnego formatu:" << std::endl;
+    std::cout << "4\n"
+        << "0 1 1 0\n"
+        << "0 0 1 1\n"
+        << "0 1 0 1\n"
+        << "1 0 0 0\n";
+    std::cout << "Podaj nazwe pliku ponownie: ";
+    std::cin >> nazwaPlikuLokalna;
+    continue;
+}
+return graph;
+    }
 }
