@@ -43,6 +43,15 @@ Plik powinien mieć następujący format:
 Pierwsza liczba oznacza liczbę wierzchołków grafu. Kolejne wiersze zawierają macierz sąsiedztwa grafu.
 Dla powyższego przykładu graf ma 4 wierzchołki: `0, 1, 2, 3`.
 
+## Sposoby Wypisywania Danych Wejściowych
+
+Dane wyjściowe są wypisywane zarówno na konsolę, jak i wysyłane do pliku hamilton.txt. 
+Przykładowa wypisywana zawartość
+```txt
+Cykl 1: 0 1 2 3 0
+Cykl 2: 0 2 1 3 0
+```
+
 ## Wymagania i Kompilacja
 
 Projekt zawiera plik `Makefile` automatyzujący proces budowania.
