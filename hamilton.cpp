@@ -1,6 +1,7 @@
 #include "hamilton.h"
 #include <iostream>
 #include <fstream>
+#include <limits>
 
 void hamiltonCycleUtil(const std::vector<std::vector<int>>& graph,
     std::vector<int>& path,
