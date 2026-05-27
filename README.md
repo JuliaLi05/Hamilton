@@ -52,6 +52,10 @@ Cykl 1: 0 1 2 3 0
 Cykl 2: 0 2 1 3 0
 ```
 
+> [!WARNING]
+> Dla grafów pełnych liczba cykli Hamiltona rośnie bardzo szybko.  
+> Program może działać bardzo długo dla grafów o dużej liczbie wierzchołków (>10).
+
 ## Wymagania i Kompilacja
 
 Projekt zawiera plik `Makefile` automatyzujący proces budowania.
