@@ -1,6 +1,6 @@
 # Hamilton
 ## Opis Projektu
-Aplikacja umożliwia znajdowanie **cykli Hamiltona** (każdy wierzchołek znajdowany tylko raz) w grafie, zarówno w przypadku danych **wprowadzanych przez użytkownika**, jak i **wczytanych z pliku**. Kod został napisany zgodnie ze standardem **C++11**. Program wyświetla wszystkie znalezione cykle Hamiltona w postaci kolejności odwiedzanych wierzchołków (jeżeli istnieją). W przeciwnym wypadku wyświetla **komunikat o braku takich cykli**.
+Aplikacja umożliwia znajdowanie **cykli Hamiltona** (każdy wierzchołek znajdowany tylko raz) w grafie, zarówno w przypadku danych **wprowadzanych przez użytkownika**, jak i **wczytanych z pliku**. Kod został napisany zgodnie ze standardem **C++11**. Program wyświetla wszystkie znalezione cykle Hamiltona w postaci kolejności odwiedzanych wierzchołków (jeżeli istnieją) i działa zarówno dla **grafów skierowanych** jak i **nieskierowanych**. W przeciwnym wypadku wyświetla **komunikat o braku takich cykli**. 
 ## Sposób Wprowadzania Danych Wejściowych
 Program umożliwia wprowadzanie danych na dwa sposoby:
 
