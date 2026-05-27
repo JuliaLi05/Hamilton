@@ -1,6 +1,8 @@
 #include <iostream>
 #include <vector>
 #include <string>
+#include <chrono>
+#include <iomanip>
 #include "hamilton.h"
 
 int main() {
@@ -29,8 +31,19 @@ int main() {
     else {
         std::cout << "Nieprawidlowy wybor." << std::endl;
         continue;
-    }
+    }        
+    auto start = std::chrono::high_resolution_clock::now();
     hamiltonCycle(graf);
+    auto stop = std::chrono::high_resolution_clock::now();
+    auto czasMs = std::chrono::duration_cast<std::chrono::milliseconds>(stop - start);
+    std::chrono::duration<double> czasSekundy = stop - start;
+    std::chrono::duration<double, std::ratio<60>> czasMinuty = stop - start;
+    std::cout << std::fixed << std::setprecision(6);
+    std::cout << "\nCzas znajdowania cyklu Hamiltona:" << std::endl;
+    std::cout << "Milisekundy: " << czasMs.count() << " ms" << std::endl;
+    std::cout << "Sekundy: " << czasSekundy.count() << " s" << std::endl;
+    std::cout << "Minuty: " << czasMinuty.count() << " min" << std::endl;
     }
     return 0;
 }
+   
